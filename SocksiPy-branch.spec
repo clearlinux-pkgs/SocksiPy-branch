@@ -4,12 +4,13 @@
 #
 Name     : SocksiPy-branch
 Version  : 1.01
-Release  : 2
+Release  : 3
 URL      : http://pypi.debian.net/SocksiPy-branch/SocksiPy-branch-1.01.tar.gz
-Source0  : https://pypi.python.org/packages/69/ed/3659a7e2cff38c3156cf919f8f6ee63360147ba97460c0a8c130f8b781e0/SocksiPy-branch-1.01.tar.gz
+Source0  : http://pypi.debian.net/SocksiPy-branch/SocksiPy-branch-1.01.tar.gz
 Summary  : A Python SOCKS module
 Group    : Development/Tools
 License  : BSD-3-Clause
+Requires: SocksiPy-branch-legacypython
 Requires: SocksiPy-branch-python
 BuildRequires : pbr
 BuildRequires : pip
@@ -23,9 +24,18 @@ A Python SOCKS module.
 (C) 2006 Dan-Haim. All rights reserved.
 See LICENSE file for details.
 
+%package legacypython
+Summary: legacypython components for the SocksiPy-branch package.
+Group: Default
+
+%description legacypython
+legacypython components for the SocksiPy-branch package.
+
+
 %package python
 Summary: python components for the SocksiPy-branch package.
 Group: Default
+Requires: SocksiPy-branch-legacypython
 Provides: socksipy-branch-python
 
 %description python
@@ -40,12 +50,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1502301128
+export SOURCE_DATE_EPOCH=1505071652
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1502301128
+export SOURCE_DATE_EPOCH=1505071652
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -56,7 +66,10 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
