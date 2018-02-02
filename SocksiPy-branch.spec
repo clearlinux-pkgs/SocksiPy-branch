@@ -4,7 +4,7 @@
 #
 Name     : SocksiPy-branch
 Version  : 1.01
-Release  : 7
+Release  : 8
 URL      : http://pypi.debian.net/SocksiPy-branch/SocksiPy-branch-1.01.tar.gz
 Source0  : http://pypi.debian.net/SocksiPy-branch/SocksiPy-branch-1.01.tar.gz
 Summary  : A Python SOCKS module
