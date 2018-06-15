@@ -14,7 +14,7 @@ Requires: SocksiPy-branch-python3
 Requires: SocksiPy-branch-python
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
